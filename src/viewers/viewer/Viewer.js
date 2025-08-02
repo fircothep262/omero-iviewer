@@ -565,6 +565,16 @@ class Viewer extends OlObject {
             possibleResolutions.push(highestRes/2);
             possibleResolutions.push(highestRes/4);
         }
+      
+        // Add some more resolutions to allow for more zooming out
+        let lowestRes = possibleResolutions[0];
+        possibleResolutions.unshift(lowestRes * 1.5);
+        possibleResolutions.unshift(lowestRes * 2);
+        possibleResolutions.unshift(lowestRes * 2.5);
+        possibleResolutions.unshift(lowestRes * 3);
+        possibleResolutions.unshift(lowestRes * 3.5);
+        possibleResolutions.unshift(lowestRes * 4);
+      
         // we need a View object for the map
         var view = new View({
             projection: proj,
